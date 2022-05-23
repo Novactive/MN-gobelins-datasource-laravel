@@ -14,6 +14,7 @@
     "laravel/framework": "^7.0",
     "laravel/helpers": "^1.2",
     "laravel/tinker": "^2.0",
+    "predis/predis": "^1.1",
     "vinkla/shield": "^6.0"
   },
   "require-dev": {
@@ -52,6 +53,19 @@
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover"
+    ],
+    "post-install-cmd": [
+      "@php artisan migrate --force"
+    ],
+    "build-assets": [
+      "npm install",
+      "npm run production"
+    ],
+    "platformsh-build": [
+      "@build-assets"
+    ],
+    "platformsh-deploy": [
+      "@post-install-cmd"
     ]
   },
   "config": {
