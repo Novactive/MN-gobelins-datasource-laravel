@@ -33,11 +33,25 @@ GET /api/products/{id}
 
 Individual product, with relationships.
 
-### Setup
+### Development setup
+First get the source by executing the command which will clone the repository :
+```shell
+composer create-project entrepreneur-interet-general/gobelins-datasource gobelins-datasource "dev-master" --repository='{"type": "vcs", "url": "git@github.com:Novactive/MN-gobelins-datasource-laravel.git"}' 
+```
+
+Download the following DB dump and save it as `provisioning/dev/db/ mn.datasource.database.dump` directory :
+https://docs.google.com/uc?export=download&id=1JsnyFQdB0g7Co5bxmcNrxP3RhZn5PqwV
+
+Run the following command to create the local development docker stack :
+```shell
+make create
+```
+
+Once done, the application should be accessible from the following urls :
+* http://localhost:38080/ (dev mode with debug)
+* http://localhost:38081/ (prod mode)
 
 ```shell
-php artisan migrate:install
-php artisan migrate
 # …
 # Manually copy the database dump files (*.sql) into storage/app/scom_latest
 # …
