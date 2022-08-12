@@ -1,6 +1,6 @@
 CURRENT_UID := $(shell id -u)
 CURRENT_GID := $(shell id -g)
-DC := PROJECTPORTPREFIX=38 DEV_UID=$(CURRENT_UID) DEV_GID=$(CURRENT_GID) docker-compose -p gobelins -f provisioning/dev/docker-compose.yml
+DC := PROJECTPORTPREFIX=38 DEV_UID=$(CURRENT_UID) DEV_GID=$(CURRENT_GID) docker-compose -p gobelins-datasource -f provisioning/dev/docker-compose.yml
 
 .PHONY: create
 create:
